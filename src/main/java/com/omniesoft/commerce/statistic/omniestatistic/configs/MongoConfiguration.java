@@ -19,4 +19,5 @@ public class MongoConfiguration {
 
 		return new LocalValidatorFactoryBean();
 	}
+
 }
