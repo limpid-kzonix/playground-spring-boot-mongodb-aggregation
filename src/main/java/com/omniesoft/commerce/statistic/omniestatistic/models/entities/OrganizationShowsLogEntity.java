@@ -2,6 +2,7 @@ package com.omniesoft.commerce.statistic.omniestatistic.models.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -10,9 +11,11 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.time.LocalDateTime;
 
 @Data
+@NoArgsConstructor
 @AllArgsConstructor
-@Document(collection = "service_favorites")
-public class ServiceFavoritesEntity {
+@Document(collection = "organization_shows_log")
+public class OrganizationShowsLogEntity {
+
 	@Id
 	@Field(value = "_id")
 	private String id;
@@ -20,7 +23,7 @@ public class ServiceFavoritesEntity {
 	@Field(value = "user_id")
 	private String userId;
 
-	@Field(value = "service_id")
+	@Field(value = "organization_id")
 	private String organizationId;
 
 	@Field(value = "date_time")
