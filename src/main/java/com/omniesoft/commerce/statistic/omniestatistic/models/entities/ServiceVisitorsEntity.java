@@ -1,5 +1,6 @@
 package com.omniesoft.commerce.statistic.omniestatistic.models.entities;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -8,19 +9,25 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
 
-@Document(collection = "service_visitors")
 @Data
+@AllArgsConstructor
+@Document(collection = "service_visitors")
 public class ServiceVisitorsEntity {
 
 	@Id
 	@Field(value = "_id")
 	private String id;
 
-	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-	private LocalDateTime visitDateTime;
-
+	@Field(value = "user_id")
 	private String userId;
 
+
+	@Field(value = "service_id")
+
 	private String organizationId;
+
+	@Field(value = "date_time")
+	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+	private LocalDateTime dateTime;
 
 }
