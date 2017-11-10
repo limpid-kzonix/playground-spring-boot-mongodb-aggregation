@@ -1,28 +1,34 @@
 package com.omniesoft.commerce.statistic.omniestatistic.controllers;
 
 import com.omniesoft.commerce.statistic.omniestatistic.models.entities.ServiceViewsLogEntity;
-import com.omniesoft.commerce.statistic.omniestatistic.models.repositories.ServiceVisitorsRepository;
+import com.omniesoft.commerce.statistic.omniestatistic.models.repositories.ServiceViewsLogRepository;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpHeaders;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @RestController
 @AllArgsConstructor
+@Slf4j
+@RequestMapping("/server")
 public class MainController {
 
-	private ServiceVisitorsRepository serviceVisitorsRepository;
+	private ServiceViewsLogRepository serviceVisitorsRepository;
 
 	@GetMapping("/index")
-	public List<ServiceViewsLogEntity> index(){
+	public String index(@RequestHeader(HttpHeaders.AUTHORIZATION) String token){
+
 		ServiceViewsLogEntity serviceVisitorsEntity = new ServiceViewsLogEntity();
 		serviceVisitorsEntity.setServiceId("hello");
 		serviceVisitorsEntity.setUserId("no");
 		serviceVisitorsEntity.setDateTime(LocalDateTime.now());
 		serviceVisitorsRepository.save(serviceVisitorsEntity);
-		return serviceVisitorsRepository.findAll();
+		return token;
 	}
 
 }

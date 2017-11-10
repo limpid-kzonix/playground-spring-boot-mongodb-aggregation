@@ -1,5 +1,6 @@
 package com.omniesoft.commerce.statistic.omniestatistic.models.entities;
 
+import com.omniesoft.commerce.statistic.omniestatistic.models.enums.UserActionType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -1,5 +1,6 @@
 package com.omniesoft.commerce.statistic.omniestatistic.models.entities;
 
+import com.omniesoft.commerce.statistic.omniestatistic.models.enums.AdminActionType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,13 +26,10 @@ public class AdminActivityLogEntity {
 	@Field(value = "admin_id")
 	private String adminId;
 
-	@Field(value = "action_type")
-	private String actionType;
-
 	@Field(value = "organization_id")
 	private String organizationId;
 
-	@Field(value = "type")
+	@Field(value = "action_type")
 	@Enumerated(EnumType.STRING)
 	private AdminActionType type;
 
