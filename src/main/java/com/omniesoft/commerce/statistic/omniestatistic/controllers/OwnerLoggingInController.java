@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(path = "/owner/logs/")
-public class OwnerStatisticInController {
+public class OwnerLoggingInController {
 
 	private AdminActivityLogService adminActivityLogService;
 

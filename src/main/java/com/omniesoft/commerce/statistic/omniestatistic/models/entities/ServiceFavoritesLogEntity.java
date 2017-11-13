@@ -1,5 +1,6 @@
 package com.omniesoft.commerce.statistic.omniestatistic.models.entities;
 
+import com.omniesoft.commerce.statistic.omniestatistic.models.enums.FavoriteType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,6 +9,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import java.time.LocalDateTime;
 
 @Data
@@ -24,6 +27,10 @@ public class ServiceFavoritesLogEntity {
 
 	@Field(value = "service_id")
 	private String serviceId;
+
+	@Field(value = "action")
+	@Enumerated(EnumType.STRING)
+	private FavoriteType action;
 
 	@Field(value = "date_time")
 	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)

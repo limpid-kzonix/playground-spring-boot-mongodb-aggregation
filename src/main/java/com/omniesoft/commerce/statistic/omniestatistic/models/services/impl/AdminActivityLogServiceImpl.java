@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 public class AdminActivityLogServiceImpl implements AdminActivityLogService {
 
 	private AdminActivityLogRepository adminActivityLogRepository;
+
 	@Override
 	public void insert(AdminLogPayload logPayload, AdminActionType type) {
 
