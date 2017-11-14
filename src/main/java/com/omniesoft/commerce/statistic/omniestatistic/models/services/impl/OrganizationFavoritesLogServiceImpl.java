@@ -2,7 +2,7 @@ package com.omniesoft.commerce.statistic.omniestatistic.models.services.impl;
 
 import com.omniesoft.commerce.common.ws.statistic.impl.payload.OrgLogPayload;
 import com.omniesoft.commerce.statistic.omniestatistic.models.entities.OrganizationFavoritesLogEntity;
-import com.omniesoft.commerce.statistic.omniestatistic.models.enums.FavoriteType;
+import com.omniesoft.commerce.common.ws.statistic.impl.enums.FavoriteType;
 import com.omniesoft.commerce.statistic.omniestatistic.models.repositories.OrganizationFavoritesLogRepository;
 import com.omniesoft.commerce.statistic.omniestatistic.models.services.OrganizationFavoritesLogService;
 import lombok.AllArgsConstructor;

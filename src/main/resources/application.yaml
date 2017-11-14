@@ -5,7 +5,7 @@
 #
 server:
  port: 9010
- contextPath: /api/statistic/
+ contextPath: /api/statistic
 
 #
 # [ Spring Database Configuration]
@@ -85,13 +85,5 @@ logging:
     jdbc.sqlonly: warn
     jdbc.resultset: warn
     jdbc.sqltiming: warn
-
-#
-# [ Rest Template ]
-#
-#image-service:
-#  api:
-#    ver: v1
-#    host: http://omniecom.com:9000/omnie/api/image
 
 

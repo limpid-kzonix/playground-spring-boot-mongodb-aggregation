@@ -1,6 +1,6 @@
 package com.omniesoft.commerce.statistic.omniestatistic.models.entities;
 
-import com.omniesoft.commerce.statistic.omniestatistic.models.enums.FavoriteType;
+import com.omniesoft.commerce.common.ws.statistic.impl.enums.FavoriteType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
