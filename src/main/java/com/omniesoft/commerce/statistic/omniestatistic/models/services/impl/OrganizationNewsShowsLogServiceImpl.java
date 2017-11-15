@@ -7,6 +7,9 @@ import com.omniesoft.commerce.statistic.omniestatistic.models.services.Organizat
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 @AllArgsConstructor
 public class OrganizationNewsShowsLogServiceImpl implements OrganizationNewsShowsLogService {
@@ -16,12 +19,16 @@ public class OrganizationNewsShowsLogServiceImpl implements OrganizationNewsShow
 	@Override
 	public void insert(NewsLogPayload logPayload) {
 
-		OrganizationNewsShowsLogEntity entity = new OrganizationNewsShowsLogEntity();
-		entity.setDateTime(logPayload.getDateTime());
-		entity.setNewsId(logPayload.getNewsId().toString());
-		entity.setOrganizationId(logPayload.getOrganizationId().toString());
-		entity.setUserId(logPayload.getUserId().toString());
+		List<OrganizationNewsShowsLogEntity> collect = logPayload.getNews().stream().map(uuid ->
+				new OrganizationNewsShowsLogEntity(
+						null,
+						logPayload.getUserId().toString(),
+						uuid.toString(),
+						logPayload.getDateTime()
+				)
+		).collect(Collectors.toList());
 
-		newsShowsLogRepository.insert(entity);
+
+		newsShowsLogRepository.insert(collect);
 	}
 }

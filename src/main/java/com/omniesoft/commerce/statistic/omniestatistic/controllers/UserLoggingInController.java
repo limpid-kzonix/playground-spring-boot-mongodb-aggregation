@@ -7,10 +7,14 @@ import com.omniesoft.commerce.common.ws.statistic.impl.payload.UserLogPayload;
 import com.omniesoft.commerce.common.ws.statistic.impl.enums.FavoriteType;
 import com.omniesoft.commerce.statistic.omniestatistic.models.enums.UserActionType;
 import com.omniesoft.commerce.statistic.omniestatistic.models.services.*;
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
+@Slf4j
 @RestController
 @RequestMapping(path = "users")
+@AllArgsConstructor
 public class UserLoggingInController {
 
 	private UserActivityLogService userActivityLogService;
@@ -63,7 +67,6 @@ public class UserLoggingInController {
 			@RequestBody UserLogPayload payload
 	)
 	{
-
 		userActivityLogService.insert(payload, UserActionType.OMNIE_CARD);
 	}
 

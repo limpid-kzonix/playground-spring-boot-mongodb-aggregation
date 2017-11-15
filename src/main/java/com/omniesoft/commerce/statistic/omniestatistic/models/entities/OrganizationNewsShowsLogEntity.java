@@ -25,9 +25,6 @@ public class OrganizationNewsShowsLogEntity {
 	@Field(value = "news_id")
 	private String newsId;
 
-	@Field(value = "organization_id")
-	private String organizationId;
-
 	@Field(value = "date_time")
 	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
 	private LocalDateTime dateTime;

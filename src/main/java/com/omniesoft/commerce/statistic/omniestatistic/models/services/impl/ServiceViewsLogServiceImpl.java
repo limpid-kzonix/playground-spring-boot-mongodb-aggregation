@@ -7,6 +7,9 @@ import com.omniesoft.commerce.statistic.omniestatistic.models.services.ServiceVi
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 @AllArgsConstructor
 public class ServiceViewsLogServiceImpl implements ServiceViewsLogService {
@@ -16,11 +19,15 @@ public class ServiceViewsLogServiceImpl implements ServiceViewsLogService {
 	@Override
 	public void insert(ServiceLogPayload logPayload) {
 
-		ServiceViewsLogEntity entity = new ServiceViewsLogEntity();
-		entity.setDateTime(logPayload.getDateTime());
-		entity.setServiceId(logPayload.getServiceId().toString());
-		entity.setUserId(logPayload.getUserId().toString());
+		List<ServiceViewsLogEntity> collect = logPayload.getServices().stream().map(uuid ->
+				new ServiceViewsLogEntity(
+						null,
+						logPayload.getUserId().toString(),
+						uuid.toString(),
+						logPayload.getDateTime()
+				)
+		).collect(Collectors.toList());
 
-		serviceShowsLogRepository.insert(entity);
+		serviceShowsLogRepository.insert(collect);
 	}
 }
