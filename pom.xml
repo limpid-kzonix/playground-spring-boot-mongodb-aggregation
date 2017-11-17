@@ -182,7 +182,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring-boot.version}</version>
                 <configuration>
-                    <mainClass>com.omniesoft.commerce.statistic.omniestatistic.OmnieStatisticApplication</mainClass>
+                    <mainClass>com.omniesoft.commerce.statistic.OmnieStatisticApplication</mainClass>
                     <addResources>true</addResources>
                 </configuration>
                 <executions>
