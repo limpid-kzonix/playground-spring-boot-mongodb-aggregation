@@ -15,18 +15,18 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Document(collection = "news_shows_log")
 public class OrganizationNewsShowsLogEntity {
-	@Id
-	@Field(value = "_id")
-	private String id;
+    @Id
+    @Field(value = "_id")
+    private String id;
 
-	@Field(value = "user_id")
-	private String userId;
+    @Field(value = "user_id")
+    private String userId;
 
-	@Field(value = "news_id")
-	private String newsId;
+    @Field(value = "news_id")
+    private String newsId;
 
-	@Field(value = "date_time")
-	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-	private LocalDateTime dateTime;
+    @Field(value = "date_time")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    private LocalDateTime dateTime;
 
 }

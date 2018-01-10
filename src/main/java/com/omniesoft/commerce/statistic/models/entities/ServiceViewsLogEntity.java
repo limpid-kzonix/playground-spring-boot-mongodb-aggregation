@@ -16,18 +16,18 @@ import java.time.LocalDateTime;
 @Document(collection = "service_visitors_log")
 public class ServiceViewsLogEntity {
 
-	@Id
-	@Field(value = "_id")
-	private String id;
+    @Id
+    @Field(value = "_id")
+    private String id;
 
-	@Field(value = "user_id")
-	private String userId;
+    @Field(value = "user_id")
+    private String userId;
 
-	@Field(value = "service_id")
-	private String serviceId;
+    @Field(value = "service_id")
+    private String serviceId;
 
-	@Field(value = "date_time")
-	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-	private LocalDateTime dateTime;
+    @Field(value = "date_time")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    private LocalDateTime dateTime;
 
 }

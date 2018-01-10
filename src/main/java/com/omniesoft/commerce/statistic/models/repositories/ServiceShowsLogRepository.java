@@ -8,7 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 @Transactional
 public interface ServiceShowsLogRepository
-		extends MongoRepository<ServiceShowsLogEntity, String>
-{
+        extends MongoRepository<ServiceShowsLogEntity, String> {
 
 }

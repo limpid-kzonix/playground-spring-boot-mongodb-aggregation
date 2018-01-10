@@ -17,156 +17,141 @@ import org.springframework.web.bind.annotation.*;
 @AllArgsConstructor
 public class UserLoggingInController {
 
-	private UserActivityLogService userActivityLogService;
+    private UserActivityLogService userActivityLogService;
 
-	private OrganizationViewsLogService organizationViewsLogService;
+    private OrganizationViewsLogService organizationViewsLogService;
 
-	private OrganizationFavoritesLogService organizationFavoritesLogService;
+    private OrganizationFavoritesLogService organizationFavoritesLogService;
 
-	private OrganizationShowsLogService organizationShowsLogService;
+    private OrganizationShowsLogService organizationShowsLogService;
 
-	private ServiceFavoritesLogService serviceFavoritesLogService;
+    private ServiceFavoritesLogService serviceFavoritesLogService;
 
-	private ServiceViewsLogService serviceViewsLogService;
+    private ServiceViewsLogService serviceViewsLogService;
 
-	private ServiceShowsLogService serviceShowsLogService;
+    private ServiceShowsLogService serviceShowsLogService;
 
-	private OrganizationNewsShowsLogService newsShowsLogService;
+    private OrganizationNewsShowsLogService newsShowsLogService;
 
-	private OrganizationNewsViewsLogService newsViewsLogService;
+    private OrganizationNewsViewsLogService newsViewsLogService;
 
-	@PostMapping(path = "/profile")
-	public void insertProfileChanges(
-			@RequestBody UserLogPayload payload
-	)
-	{
+    @PostMapping(path = "/profile")
+    public void insertProfileChanges(
+            @RequestBody UserLogPayload payload
+    ) {
 
-		userActivityLogService.insert(payload, UserActionType.PROFILE);
-	}
+        userActivityLogService.insert(payload, UserActionType.PROFILE);
+    }
 
-	@PostMapping(path = "/password")
-	public void insertPasswordChanges(
-			@RequestBody UserLogPayload payload
-	)
-	{
+    @PostMapping(path = "/password")
+    public void insertPasswordChanges(
+            @RequestBody UserLogPayload payload
+    ) {
 
-		userActivityLogService.insert(payload, UserActionType.PASSWORD);
-	}
+        userActivityLogService.insert(payload, UserActionType.PASSWORD);
+    }
 
-	@PostMapping(path = "/settings")
-	public void insertSettingsChanges(
-			@RequestBody UserLogPayload payload
-	)
-	{
+    @PostMapping(path = "/settings")
+    public void insertSettingsChanges(
+            @RequestBody UserLogPayload payload
+    ) {
 
-		userActivityLogService.insert(payload, UserActionType.SETTING);
-	}
+        userActivityLogService.insert(payload, UserActionType.SETTING);
+    }
 
-	@PostMapping(path = "/cards/omnie")
-	public void insertUsingOmnieCard(
-			@RequestBody UserLogPayload payload
-	)
-	{
-		userActivityLogService.insert(payload, UserActionType.OMNIE_CARD);
-	}
+    @PostMapping(path = "/cards/omnie")
+    public void insertUsingOmnieCard(
+            @RequestBody UserLogPayload payload
+    ) {
+        userActivityLogService.insert(payload, UserActionType.OMNIE_CARD);
+    }
 
-	@PostMapping(path = "/cards/holder")
-	public void insertUsingCardHolder(
-			@RequestBody UserLogPayload payload
-	)
-	{
+    @PostMapping(path = "/cards/holder")
+    public void insertUsingCardHolder(
+            @RequestBody UserLogPayload payload
+    ) {
 
-		userActivityLogService.insert(payload, UserActionType.CARD_HOLDER);
-	}
+        userActivityLogService.insert(payload, UserActionType.CARD_HOLDER);
+    }
 
-	@PostMapping(path = "/order/history")
-	public void readOrderHistory(
-			@RequestBody UserLogPayload payload
-	)
-	{
-		userActivityLogService.insert(payload, UserActionType.ORDER);
-	}
+    @PostMapping(path = "/order/history")
+    public void readOrderHistory(
+            @RequestBody UserLogPayload payload
+    ) {
+        userActivityLogService.insert(payload, UserActionType.ORDER);
+    }
 
-	@PostMapping(path = "/organizations/search")
-	public void insertToOrganizationSearchingLog(
-			@RequestBody UserLogPayload payload,
-			@RequestParam(name = "pattern") String searchingPattern
-	)
-	{
+    @PostMapping(path = "/organizations/search")
+    public void insertToOrganizationSearchingLog(
+            @RequestBody UserLogPayload payload,
+            @RequestParam(name = "pattern") String searchingPattern
+    ) {
 
-		userActivityLogService.insertToSearchingLog(payload, searchingPattern);
-	}
+        userActivityLogService.insertToSearchingLog(payload, searchingPattern);
+    }
 
-	@PostMapping(path = "/organizations/favorites/")
-	public void insertToOrganizationFavoritesLog(
-			@RequestBody OrgLogPayload payload,
-			@RequestParam(name = "type") FavoriteType type
-	)
-	{
+    @PostMapping(path = "/organizations/favorites/")
+    public void insertToOrganizationFavoritesLog(
+            @RequestBody OrgLogPayload payload,
+            @RequestParam(name = "type") FavoriteType type
+    ) {
 
-		organizationFavoritesLogService.insert(payload, type);
-	}
+        organizationFavoritesLogService.insert(payload, type);
+    }
 
-	@PostMapping(path = "/organizations/shows")
-	public void insertToOrganizationsShowsLog(
-			@RequestBody OrgLogPayload payload
-	)
-	{
+    @PostMapping(path = "/organizations/shows")
+    public void insertToOrganizationsShowsLog(
+            @RequestBody OrgLogPayload payload
+    ) {
 
-		organizationShowsLogService.insert(payload);
-	}
+        organizationShowsLogService.insert(payload);
+    }
 
-	@PostMapping(path = "/organizations/views")
-	public void insertToOrganizationViewsLog(
-			@RequestBody OrgLogPayload payload
-	)
-	{
+    @PostMapping(path = "/organizations/views")
+    public void insertToOrganizationViewsLog(
+            @RequestBody OrgLogPayload payload
+    ) {
 
-		organizationViewsLogService.insert(payload);
-	}
+        organizationViewsLogService.insert(payload);
+    }
 
-	@PostMapping(path = "/services/shows")
-	public void insertToServiceShowsLog(
-			@RequestBody ServiceLogPayload serviceLogPayload
-	)
-	{
+    @PostMapping(path = "/services/shows")
+    public void insertToServiceShowsLog(
+            @RequestBody ServiceLogPayload serviceLogPayload
+    ) {
 
-		serviceShowsLogService.insert(serviceLogPayload);
-	}
+        serviceShowsLogService.insert(serviceLogPayload);
+    }
 
-	@PostMapping(path = "/services/views")
-	public void insertToServiceViewsLog(
-			@RequestBody ServiceLogPayload serviceLogPayload
-	)
-	{
+    @PostMapping(path = "/services/views")
+    public void insertToServiceViewsLog(
+            @RequestBody ServiceLogPayload serviceLogPayload
+    ) {
 
-		serviceViewsLogService.insert(serviceLogPayload);
-	}
+        serviceViewsLogService.insert(serviceLogPayload);
+    }
 
-	@PostMapping(path = "/services/favorites")
-	public void insertToServiceFavoritesLog(
-		@RequestBody ServiceLogPayload serviceLogPayload,
-		@RequestParam(name = "type") FavoriteType type
-	)
-	{
-		serviceFavoritesLogService.insert(serviceLogPayload, type);
-	}
+    @PostMapping(path = "/services/favorites")
+    public void insertToServiceFavoritesLog(
+            @RequestBody ServiceLogPayload serviceLogPayload,
+            @RequestParam(name = "type") FavoriteType type
+    ) {
+        serviceFavoritesLogService.insert(serviceLogPayload, type);
+    }
 
-	@PostMapping(path = "/news/shows")
-	public void insertToNewsShowsLog(
-		@RequestBody NewsLogPayload newsLogPayload
-	)
-	{
-		newsShowsLogService.insert(newsLogPayload);
-	}
+    @PostMapping(path = "/news/shows")
+    public void insertToNewsShowsLog(
+            @RequestBody NewsLogPayload newsLogPayload
+    ) {
+        newsShowsLogService.insert(newsLogPayload);
+    }
 
-	@PostMapping(path = "/news/views")
-	public void insertToNewsViewsLog(
-			@RequestBody NewsLogPayload newsLogPayload
-	)
-	{
-		newsViewsLogService.insert(newsLogPayload);
-	}
+    @PostMapping(path = "/news/views")
+    public void insertToNewsViewsLog(
+            @RequestBody NewsLogPayload newsLogPayload
+    ) {
+        newsViewsLogService.insert(newsLogPayload);
+    }
 
 
 }

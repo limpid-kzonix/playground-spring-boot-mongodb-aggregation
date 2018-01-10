@@ -7,7 +7,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 @Transactional
-public interface OrganizationFavoritesLogRepository extends MongoRepository<OrganizationFavoritesLogEntity, String>
-{
+public interface OrganizationFavoritesLogRepository extends MongoRepository<OrganizationFavoritesLogEntity, String> {
 
 }

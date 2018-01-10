@@ -5,5 +5,5 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public interface ServiceViewsLogRepositoryCustom {
 
-	void update();
+    void update();
 }

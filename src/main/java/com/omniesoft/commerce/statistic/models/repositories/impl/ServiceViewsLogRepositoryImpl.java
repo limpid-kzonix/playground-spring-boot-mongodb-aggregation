@@ -6,11 +6,11 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 
 public class ServiceViewsLogRepositoryImpl implements ServiceViewsLogRepositoryCustom {
 
-	@Autowired
-	private MongoTemplate mongoTemplate;
+    @Autowired
+    private MongoTemplate mongoTemplate;
 
-	@Override
-	public void update() {
+    @Override
+    public void update() {
 
-	}
+    }
 }

@@ -18,21 +18,21 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Document(collection = "service_favorites_log")
 public class ServiceFavoritesLogEntity {
-	@Id
-	@Field(value = "_id")
-	private String id;
+    @Id
+    @Field(value = "_id")
+    private String id;
 
-	@Field(value = "user_id")
-	private String userId;
+    @Field(value = "user_id")
+    private String userId;
 
-	@Field(value = "service_id")
-	private String serviceId;
+    @Field(value = "service_id")
+    private String serviceId;
 
-	@Field(value = "action")
-	@Enumerated(EnumType.STRING)
-	private FavoriteType action;
+    @Field(value = "action")
+    @Enumerated(EnumType.STRING)
+    private FavoriteType action;
 
-	@Field(value = "date_time")
-	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-	private LocalDateTime dateTime;
+    @Field(value = "date_time")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    private LocalDateTime dateTime;
 }

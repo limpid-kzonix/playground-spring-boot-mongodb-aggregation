@@ -14,20 +14,20 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class OrganizationNewsViewsLogServiceImpl implements OrganizationNewsViewsLogService {
 
-	private OrganizationNewsViewsLogRepository newsViewsLogRepository;
+    private OrganizationNewsViewsLogRepository newsViewsLogRepository;
 
-	@Override
-	public void insert(NewsLogPayload logPayload) {
-		List<OrganizationNewsViewsLogEntity> collect = logPayload.getNews().stream().map(uuid ->
-				new OrganizationNewsViewsLogEntity(
-						null,
-						logPayload.getUserId().toString(),
-						uuid.toString(),
-						logPayload.getDateTime()
-				)
-		).collect(Collectors.toList());
+    @Override
+    public void insert(NewsLogPayload logPayload) {
+        List<OrganizationNewsViewsLogEntity> collect = logPayload.getNews().stream().map(uuid ->
+                new OrganizationNewsViewsLogEntity(
+                        null,
+                        logPayload.getUserId().toString(),
+                        uuid.toString(),
+                        logPayload.getDateTime()
+                )
+        ).collect(Collectors.toList());
 
 
-		newsViewsLogRepository.insert(collect);
-	}
+        newsViewsLogRepository.insert(collect);
+    }
 }

@@ -15,22 +15,22 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class OrganizationFavoritesLogServiceImpl implements OrganizationFavoritesLogService {
 
-	private OrganizationFavoritesLogRepository organizationFavoritesLogRepository;
+    private OrganizationFavoritesLogRepository organizationFavoritesLogRepository;
 
-	@Override
-	public void insert(OrgLogPayload logPayload, FavoriteType type) {
+    @Override
+    public void insert(OrgLogPayload logPayload, FavoriteType type) {
 
-		List<OrganizationFavoritesLogEntity> collect = logPayload.getOrganizations().stream().map(uuid ->
-				new OrganizationFavoritesLogEntity(
-						null,
-						logPayload.getUserId().toString(),
-						uuid.toString(),
-						type,
-						logPayload.getDateTime()
-				)
-		).collect(Collectors.toList());
+        List<OrganizationFavoritesLogEntity> collect = logPayload.getOrganizations().stream().map(uuid ->
+                new OrganizationFavoritesLogEntity(
+                        null,
+                        logPayload.getUserId().toString(),
+                        uuid.toString(),
+                        type,
+                        logPayload.getDateTime()
+                )
+        ).collect(Collectors.toList());
 
 
-		organizationFavoritesLogRepository.insert(collect);
-	}
+        organizationFavoritesLogRepository.insert(collect);
+    }
 }

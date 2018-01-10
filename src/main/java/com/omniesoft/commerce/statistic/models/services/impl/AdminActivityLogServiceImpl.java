@@ -15,21 +15,21 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class AdminActivityLogServiceImpl implements AdminActivityLogService {
 
-	private AdminActivityLogRepository adminActivityLogRepository;
+    private AdminActivityLogRepository adminActivityLogRepository;
 
-	@Override
-	public void insert(AdminLogPayload logPayload, AdminActionType type) {
-		List<AdminActivityLogEntity> collect = logPayload.getOrganizations().stream().map(uuid ->
-				new AdminActivityLogEntity(
-						null,
-						logPayload.getUserId().toString(),
-						uuid.toString(),
-						type,
-						logPayload.getDateTime()
-				)
-		).collect(Collectors.toList());
+    @Override
+    public void insert(AdminLogPayload logPayload, AdminActionType type) {
+        List<AdminActivityLogEntity> collect = logPayload.getOrganizations().stream().map(uuid ->
+                new AdminActivityLogEntity(
+                        null,
+                        logPayload.getUserId().toString(),
+                        uuid.toString(),
+                        type,
+                        logPayload.getDateTime()
+                )
+        ).collect(Collectors.toList());
 
 
-		adminActivityLogRepository.insert(collect);
-	}
+        adminActivityLogRepository.insert(collect);
+    }
 }

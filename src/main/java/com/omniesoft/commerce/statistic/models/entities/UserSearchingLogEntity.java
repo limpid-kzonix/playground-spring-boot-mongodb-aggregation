@@ -17,21 +17,21 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Document(collection = "users_searching_log")
 public class UserSearchingLogEntity {
-	@Id
-	@Field(value = "_id")
-	private String id;
+    @Id
+    @Field(value = "_id")
+    private String id;
 
-	@Field(value = "user_id")
-	private String userId;
+    @Field(value = "user_id")
+    private String userId;
 
-	@Field(value = "pattern")
-	@TextIndexed(weight = 2)
-	private String pattern;
+    @Field(value = "pattern")
+    @TextIndexed(weight = 2)
+    private String pattern;
 
-	@TextScore
-	private Float score;
+    @TextScore
+    private Float score;
 
-	@Field(value = "date_time")
-	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-	private LocalDateTime dateTime;
+    @Field(value = "date_time")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    private LocalDateTime dateTime;
 }

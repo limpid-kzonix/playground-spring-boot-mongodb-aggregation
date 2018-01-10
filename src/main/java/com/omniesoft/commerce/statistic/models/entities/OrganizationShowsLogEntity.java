@@ -16,17 +16,17 @@ import java.time.LocalDateTime;
 @Document(collection = "organization_shows_log")
 public class OrganizationShowsLogEntity {
 
-	@Id
-	@Field(value = "_id")
-	private String id;
+    @Id
+    @Field(value = "_id")
+    private String id;
 
-	@Field(value = "user_id")
-	private String userId;
+    @Field(value = "user_id")
+    private String userId;
 
-	@Field(value = "organization_id")
-	private String organizationId;
+    @Field(value = "organization_id")
+    private String organizationId;
 
-	@Field(value = "date_time")
-	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-	private LocalDateTime dateTime;
+    @Field(value = "date_time")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    private LocalDateTime dateTime;
 }

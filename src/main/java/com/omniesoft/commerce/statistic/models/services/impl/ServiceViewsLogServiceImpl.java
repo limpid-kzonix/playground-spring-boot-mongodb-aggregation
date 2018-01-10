@@ -14,20 +14,20 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class ServiceViewsLogServiceImpl implements ServiceViewsLogService {
 
-	private ServiceViewsLogRepository serviceShowsLogRepository;
+    private ServiceViewsLogRepository serviceShowsLogRepository;
 
-	@Override
-	public void insert(ServiceLogPayload logPayload) {
+    @Override
+    public void insert(ServiceLogPayload logPayload) {
 
-		List<ServiceViewsLogEntity> collect = logPayload.getServices().stream().map(uuid ->
-				new ServiceViewsLogEntity(
-						null,
-						logPayload.getUserId().toString(),
-						uuid.toString(),
-						logPayload.getDateTime()
-				)
-		).collect(Collectors.toList());
+        List<ServiceViewsLogEntity> collect = logPayload.getServices().stream().map(uuid ->
+                new ServiceViewsLogEntity(
+                        null,
+                        logPayload.getUserId().toString(),
+                        uuid.toString(),
+                        logPayload.getDateTime()
+                )
+        ).collect(Collectors.toList());
 
-		serviceShowsLogRepository.insert(collect);
-	}
+        serviceShowsLogRepository.insert(collect);
+    }
 }

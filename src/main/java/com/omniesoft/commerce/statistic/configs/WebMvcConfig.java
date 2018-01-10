@@ -16,29 +16,29 @@ import java.util.List;
 @Configuration
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
-	@Override
-	public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
+    @Override
+    public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
 
-		List<MediaType> supportedMediaTypes = new ArrayList<>();
-		supportedMediaTypes.add(MediaType.APPLICATION_JSON);
-		supportedMediaTypes.add(MediaType.TEXT_PLAIN);
-		for (HttpMessageConverter<?> converter : converters) {
-			if (converter.getClass().equals(MappingJackson2HttpMessageConverter.class)) {
-				((MappingJackson2HttpMessageConverter) converter).getObjectMapper()
-				                                                 .registerModule(new Hibernate5Module());
-			}
-		}
-		MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();
-		ObjectMapper objectMapper = new ObjectMapper();
-		objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
-		objectMapper.registerModule(new Hibernate5Module());
-		objectMapper.registerModule(new JavaTimeModule());
+        List<MediaType> supportedMediaTypes = new ArrayList<>();
+        supportedMediaTypes.add(MediaType.APPLICATION_JSON);
+        supportedMediaTypes.add(MediaType.TEXT_PLAIN);
+        for (HttpMessageConverter<?> converter : converters) {
+            if (converter.getClass().equals(MappingJackson2HttpMessageConverter.class)) {
+                ((MappingJackson2HttpMessageConverter) converter).getObjectMapper()
+                        .registerModule(new Hibernate5Module());
+            }
+        }
+        MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+        objectMapper.registerModule(new Hibernate5Module());
+        objectMapper.registerModule(new JavaTimeModule());
 
-		converter.setObjectMapper(objectMapper);
-		converter.setPrettyPrint(true);
-		converter.setSupportedMediaTypes(supportedMediaTypes);
-		converters.add(converter);
+        converter.setObjectMapper(objectMapper);
+        converter.setPrettyPrint(true);
+        converter.setSupportedMediaTypes(supportedMediaTypes);
+        converters.add(converter);
 
-		super.extendMessageConverters(converters);
-	}
+        super.extendMessageConverters(converters);
+    }
 }

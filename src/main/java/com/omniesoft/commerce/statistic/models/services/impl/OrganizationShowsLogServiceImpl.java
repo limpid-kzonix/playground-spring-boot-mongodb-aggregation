@@ -14,21 +14,21 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class OrganizationShowsLogServiceImpl implements OrganizationShowsLogService {
 
-	private OrganizationShowsLogRepository organizationShowsLogRepository;
+    private OrganizationShowsLogRepository organizationShowsLogRepository;
 
-	@Override
-	public void insert(OrgLogPayload logPayload) {
+    @Override
+    public void insert(OrgLogPayload logPayload) {
 
-		List<OrganizationShowsLogEntity> collect = logPayload.getOrganizations().stream().map(uuid ->
-				new OrganizationShowsLogEntity(
-						null,
-						logPayload.getUserId().toString(),
-						uuid.toString(),
-						logPayload.getDateTime()
-				)
-		).collect(Collectors.toList());
+        List<OrganizationShowsLogEntity> collect = logPayload.getOrganizations().stream().map(uuid ->
+                new OrganizationShowsLogEntity(
+                        null,
+                        logPayload.getUserId().toString(),
+                        uuid.toString(),
+                        logPayload.getDateTime()
+                )
+        ).collect(Collectors.toList());
 
 
-		organizationShowsLogRepository.insert(collect);
-	}
+        organizationShowsLogRepository.insert(collect);
+    }
 }

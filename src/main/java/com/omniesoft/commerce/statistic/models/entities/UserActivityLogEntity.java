@@ -19,19 +19,19 @@ import java.time.LocalDateTime;
 @Document(collection = "users_activity_log")
 public class UserActivityLogEntity {
 
-	@Id
-	@Field(value = "_id")
-	private String id;
+    @Id
+    @Field(value = "_id")
+    private String id;
 
-	@Field(value = "user_id")
-	private String userId;
+    @Field(value = "user_id")
+    private String userId;
 
-	@Field(value = "type")
-	@Enumerated(EnumType.STRING)
-	private UserActionType type;
+    @Field(value = "type")
+    @Enumerated(EnumType.STRING)
+    private UserActionType type;
 
-	@Field(value = "date_time")
-	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-	private LocalDateTime dateTime;
+    @Field(value = "date_time")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    private LocalDateTime dateTime;
 
 }
