@@ -1,4 +1,4 @@
-package com.omniesoft.commerce.statistic.configs;
+package com.omniesoft.commerce.statistic.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

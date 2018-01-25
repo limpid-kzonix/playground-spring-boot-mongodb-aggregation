@@ -23,7 +23,7 @@ spring:
       reactive-repositories:
         enabled: true
       database: omnie-commerce-statistic
-      grid-fs-database: omnie-commerce-fs
+      grid-fs-database: omnie-commerce-statistic-fs
 
 #
 # [ Spring Email Configuration]

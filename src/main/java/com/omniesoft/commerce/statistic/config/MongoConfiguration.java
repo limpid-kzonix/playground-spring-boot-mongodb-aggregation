@@ -1,4 +1,4 @@
-package com.omniesoft.commerce.statistic.configs;
+package com.omniesoft.commerce.statistic.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

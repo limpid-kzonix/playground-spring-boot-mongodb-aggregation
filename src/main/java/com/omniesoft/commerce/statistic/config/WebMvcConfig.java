@@ -1,4 +1,4 @@
-package com.omniesoft.commerce.statistic.configs;
+package com.omniesoft.commerce.statistic.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
