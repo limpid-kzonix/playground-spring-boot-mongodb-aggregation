@@ -1,5 +1,4 @@
 FROM openjdk:8-jre-alpine
-EXPOSE 9070
 
 RUN apk add --no-cache curl
 
